@@ -115,13 +115,13 @@ double[] NumberRow(int[,] array)
     double[] numberRow = new double[n];
     for (int j = 0; j < array.GetLength(1); j++)
     {
+        //numberRow[j] = 0;
         for (int i = 0; i < array.GetLength(0); i++)
         {
-            //numberRow[j] = array[0,j];
-            numberRow[j] = (numberRow[j] + array[array.GetLength(0) - i - 1, j])/array.GetLength(0);
-            numberRow[j] += numberRow[j];
+            // numberRow[j] = array[0,j];
+            numberRow[j] = numberRow[j] + array[i,j];
         }
-        //numberRow[j] += numberRow[j];
+        numberRow[j] = numberRow[j] / array.GetLength(0);
     }
     return numberRow;
 }
